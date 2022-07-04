@@ -1,0 +1,2 @@
+# testjs
+test js script
