@@ -23,7 +23,7 @@ document.head.appendChild(styleSheet);
 
 // 1. Create the button
 var button = document.createElement("button");
-button.innerHTML = "Checkout";
+button.innerHTML = "Checkout by ExcelPay";
 button.classList.add("button");
 // 2. Append somewhere
 var body = document.getElementsByTagName("body")[0];
