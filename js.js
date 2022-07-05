@@ -25,26 +25,20 @@ document.head.appendChild(styleSheet);
 var button = document.createElement("button");
 button.innerHTML = "Checkout by ExcelPay";
 button.classList.add("button");
+
 // 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
+var div = document.getElementsById('excelpay-checkout');
+div.appendChild(button);
 
-// 3. Add iFrame div
-
-var dv = document.createElement("div");
-dv.setAttribute('id','iframe-container');
-document.body.appendChild(dv);
-
-// 4. Add event handler
+// 3. Add event handler
 button.addEventListener ("click", function() {
 // 5.create iframe 	
-
 if(!document.getElementById('ifrm')){
 	var ifrm = document.createElement('iframe');
     ifrm.setAttribute('id', 'ifrm'); // assign an id
-	ifrm.style.width = "640px";
+	  ifrm.style.width = "640px";
     ifrm.style.height = "480px";
-    dv.appendChild(ifrm);
+    div.appendChild(ifrm);
     ifrm.setAttribute('src', 'https://www.youtube.com/embed/ro_Vwk_LTHc');
   }
 });
