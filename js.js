@@ -27,7 +27,7 @@ button.innerHTML = "Checkout by ExcelPay";
 button.classList.add("button");
 
 // 2. Append somewhere
-var div = document.getElementsById('excelpay-checkout');
+var div = document.getElementById('excelpay-checkout');
 div.appendChild(button);
 
 // 3. Add event handler
