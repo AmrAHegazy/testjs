@@ -13,7 +13,7 @@ var styles = `
 }
 
 `
-
+import {mount} from "./script.js";
 
 //add-styles
 var styleSheet = document.createElement("style")
@@ -25,9 +25,9 @@ document.head.appendChild(styleSheet);
 var button = document.createElement("button");
 button.innerHTML = "Checkout by ExcelPay";
 button.classList.add("button");
-
+var x = mount('excelpay-checkout');
 // 2. Append somewhere
-var div = document.getElementById('excelpay-checkout');
+var div = document.getElementById(x);
 div.appendChild(button);
 
 // 3. Add event handler
@@ -42,4 +42,7 @@ if(!document.getElementById('ifrm')){
     ifrm.setAttribute('src', 'https://www.youtube.com/embed/ro_Vwk_LTHc');
   }
 });
+
+
+
 
