@@ -14,38 +14,50 @@ var styles = `
 
 `
 
-
 //add-styles
 var styleSheet = document.createElement("style")
 styleSheet.innerText = styles
 document.head.appendChild(styleSheet);
 
+let data;
+let sec;
+let div;
 
 // 1. Create the button
 var button = document.createElement("button");
-button.innerHTML = "Checkout";
+button.innerHTML = "Checkout by ExcelPay";
 button.classList.add("button");
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
 
-// 3. Add iFrame div
 
-var dv = document.createElement("div");
-dv.setAttribute('id','iframe-container');
-document.body.appendChild(dv);
 
-// 4. Add event handler
+// 3. Add event handler
 button.addEventListener ("click", function() {
 // 5.create iframe 	
-
 if(!document.getElementById('ifrm')){
+  ifrmLink = constructIframeLink(data)
 	var ifrm = document.createElement('iframe');
-    ifrm.setAttribute('id', 'ifrm'); // assign an id
+  ifrm.setAttribute('id', 'ifrm'); // assign an id
 	ifrm.style.width = "640px";
-    ifrm.style.height = "480px";
-    dv.appendChild(ifrm);
-    ifrm.setAttribute('src', 'https://www.youtube.com/embed/ro_Vwk_LTHc');
+  ifrm.style.height = "480px";
+  div.appendChild(ifrm);
+  ifrm.setAttribute('src', ifrmLink);
   }
 });
+
+function mount(section,clientSecret,iframeId,publicKey){
+  data = {
+    clientSecret:clientSecret,iframeId:iframeId,publicKey:publicKey
+  }
+  sec = section;
+  // 2. Append somewhere
+  div = document.getElementById(sec);
+  div.appendChild(button);
+
+}
+
+
+function constructIframeLink(data){
+  return "https://localhost:5001/?IframeId="+data.iframeId+"&ClientSecret="+data.clientSecret+"&MerchantPublicKey="+data.publicKey;
+}
+
 
