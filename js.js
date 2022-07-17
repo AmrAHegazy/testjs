@@ -14,6 +14,7 @@ var styles = `
 
 `
 
+
 //add-styles
 var styleSheet = document.createElement("style")
 styleSheet.innerText = styles
@@ -22,26 +23,29 @@ document.head.appendChild(styleSheet);
 
 // 1. Create the button
 var button = document.createElement("button");
-button.innerHTML = "Checkout by ExcelPay";
+button.innerHTML = "Checkout";
 button.classList.add("button");
-
 // 2. Append somewhere
-var div = document.getElementById('excelpay-checkout');
-div.appendChild(button);
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(button);
 
-// 3. Add event handler
+// 3. Add iFrame div
+
+var dv = document.createElement("div");
+dv.setAttribute('id','iframe-container');
+document.body.appendChild(dv);
+
+// 4. Add event handler
 button.addEventListener ("click", function() {
 // 5.create iframe 	
+
 if(!document.getElementById('ifrm')){
 	var ifrm = document.createElement('iframe');
     ifrm.setAttribute('id', 'ifrm'); // assign an id
-	  ifrm.style.width = "640px";
+	ifrm.style.width = "640px";
     ifrm.style.height = "480px";
-    div.appendChild(ifrm);
+    dv.appendChild(ifrm);
     ifrm.setAttribute('src', 'https://www.youtube.com/embed/ro_Vwk_LTHc');
   }
 });
-
-
-
 
